@@ -1,6 +1,7 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.mockito.*;
+import java.util.*;
 
 
 public class RentACatTest {
@@ -39,7 +40,7 @@ public class RentACatTest {
       list.add(c2);
       list.add(c3);
       String val = rc.listCats(list);
-      assertEqual(val, "str1\nstr2\nstr3\n");
+      assertEquals(val, "str1\nstr2\nstr3\n");
     }
 
     @Test
@@ -59,7 +60,7 @@ public class RentACatTest {
       list.add(c2);
       list.add(c3);
       String val = rc.listCats(list);
-      assertEqual(val, "str1\nstr3\n");
+      assertEquals(val, "str1\nstr3\n");
     }
 
     @Test
@@ -73,8 +74,9 @@ public class RentACatTest {
     public void testExistsValid() {
       RentACat rc = new RentACat();
       ArrayList<Cat> list = new ArrayList<Cat>();
-      Cat c1 = Mocito.mock(Cat.class);
+      Cat c1 = Mockito.mock(Cat.class);
       Mockito.when(c1.getId()).thenReturn(1);
+      list.add(c1);
       assertTrue(rc.catExists(1, list));
     }
 }
