@@ -17,8 +17,13 @@ public class RentACat {
      */
 
     public boolean returnCat(Cat c) {
-	// TODO
-	return false;
+
+      if(c.getRented()){
+        c.returnCat();
+        return true;
+      }
+      else return false;
+
     }
 
     /**
@@ -34,8 +39,11 @@ public class RentACat {
 
 
     public boolean rentCat(Cat c) {
-	// TODO
-	return false;
+      if(!c.getRented()){
+        c.rentCat();
+        return true;
+      }
+      else return false;
     }
 
 
@@ -53,8 +61,14 @@ public class RentACat {
      */
 
     public String listCats(ArrayList<Cat> catList) {
-	// TODO
-	return "WRITE CODE FOR THIS";
+      String ret="";
+      for(int i=0; i<catList.size(); i++){
+        Cat c = catList.get(i);
+        if(!c.getRented()){
+          ret = ret+ c.toString()+"\n";
+        }
+      }
+      return ret;
     }
 
     /**
@@ -68,8 +82,12 @@ public class RentACat {
      */
 
     public boolean catExists(int id, ArrayList<Cat> catList) {
-	// TODO
-	return false;
+	     if(catList == null || catList.size() == 0) return false;
+       for(int i=0; i<catList.size(); i++){
+         Cat c = catList.get(i);
+         if(c.getId() == id) return true;
+       }
+       return false;
     }
 
     /**
@@ -210,6 +228,7 @@ public class RentACat {
 			    }
 			} catch (Exception nfex) {
 			    System.err.println("Invalid cat ID.");
+          sc.next();
 			}
 		    }
 
