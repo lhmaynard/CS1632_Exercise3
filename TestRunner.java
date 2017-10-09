@@ -10,6 +10,7 @@ public class TestRunner {
 	boolean anyFailures = false;
 
 	// ADD ANY CLASSES YOU WISH TO TEST HERE
+  classesToTest.add(RentACatTest);
 
 	// For all test classes added, loop through and use JUnit
 	// to run them.
@@ -43,4 +44,4 @@ public class TestRunner {
 	    System.out.println("\nALL TESTS PASSED");
 	}
     }
-} 
+}
